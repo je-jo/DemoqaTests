@@ -25,6 +25,8 @@ public class PracticeFormTest extends BaseTest {
 //        String subjects = "Flying";
         String hobbiesOption = "Reading";
         String address = "Neverland";
+        String state = "NCR";
+        String city = "Delhi";
         homepage.clickOnCard("Forms");
         sidebarPage.clickOnLink("Practice Form");
         practiceFormPage.enterFirstName(firstName);
@@ -40,6 +42,8 @@ public class PracticeFormTest extends BaseTest {
         practiceFormPage.enterAddress(address);
         // practiceFormPage.clickOnStateDropdown();
         //practiceFormPage.printChildren();
+        practiceFormPage.enterState(state);
+        practiceFormPage.enterCity(city);
         practiceFormPage.clickSubmitBtn();
 
         // asertacija
@@ -52,6 +56,7 @@ public class PracticeFormTest extends BaseTest {
         Assert.assertEquals(practiceFormPage.tableCells.get(13).getText(), hobbiesOption);
         Assert.assertEquals(practiceFormPage.tableCells.get(15).getText(), imgFileName);
         Assert.assertEquals(practiceFormPage.tableCells.get(17).getText(), address);
+        Assert.assertEquals(practiceFormPage.tableCells.get(19).getText(), state + " " + city);
         Assert.assertTrue(isElemDisplayed(practiceFormPage.btnCloseTable));
 
     }
@@ -61,8 +66,8 @@ public class PracticeFormTest extends BaseTest {
         homepage.clickOnCard("Forms");
         sidebarPage.clickOnLink("Practice Form");
         scrollToElement(practiceFormPage.btnSubmit);
-        practiceFormPage.clickOnStateDropdown();
-        System.out.println(practiceFormPage.stateOptions.getClass());
+//        practiceFormPage.clickOnStateDropdown();
+//        System.out.println(practiceFormPage.stateOptions.getClass());
         // practiceFormPage.clickSubmitBtn();
         // asertacija
         Assert.assertFalse(isElemDisplayed(practiceFormPage.table));

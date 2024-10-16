@@ -2,6 +2,7 @@ package Pages;
 
 import Base.BaseTest;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -41,12 +42,17 @@ public class PracticeFormPage extends BaseTest {
     @FindBy(id = "currentAddress")
     public WebElement inputCurrAddress;
 
-    @FindBy(id = "state")
+/*    @FindBy(id = "state")
     public WebElement dropdownState;
 
     @FindBy(xpath = "/html/body/div[2]/div/div/div/div[2]/div[2]/form/div[10]/div[2]/div/div/div[2]")
-    public WebElement stateOptions;
+    public WebElement stateOptions;*/
 
+    @FindBy(id = "react-select-3-input")
+    public WebElement inputState;
+
+    @FindBy(id = "react-select-4-input")
+    public WebElement inputCity;
 
     @FindBy(id = "submit")
     public WebElement btnSubmit;
@@ -106,10 +112,20 @@ public class PracticeFormPage extends BaseTest {
         inputCurrAddress.sendKeys(address);
     }
 
-    public void clickOnStateDropdown() {
+/*    public void clickOnStateDropdown() {
         dropdownState.click();
         js.executeScript("console.log('here')");
         js.executeScript("console.log(document.querySelectorAll('.css-2613qy-menu'))");
+    }*/
+
+    public void enterState(String state) {
+        inputState.sendKeys(state);
+        inputState.sendKeys(Keys.ENTER);
+    }
+
+    public void enterCity(String city) {
+        inputCity.sendKeys(city);
+        inputCity.sendKeys(Keys.ENTER);
     }
 
 
